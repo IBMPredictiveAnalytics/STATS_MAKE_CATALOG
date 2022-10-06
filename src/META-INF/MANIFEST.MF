@@ -1,6 +1,6 @@
 Name: STATS_MAKE_CATALOG
 Display-Name: Make Variable Catalog
-Dialog-Specs: MakeCatalog.cfe,STATS_MAKE_CATALOG.spe.cfe
+Dialog-Specs: MakeCatalog.cfe
 Command-Specs: STATS_MAKE_CATALOG.xml
 Code-Files: STATS_MAKE_CATALOG.py
 Misc-Files: extsyntax.css,Readme.md,IBMdialogicon.png,LICENSE,default.
