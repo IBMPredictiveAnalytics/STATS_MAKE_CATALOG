@@ -1,0 +1,21 @@
+Name: STATS_MAKE_CATALOG
+Display-Name: Make Variable Catalog
+Dialog-Specs: MakeCatalog.cfe,STATS_MAKE_CATALOG.spe.cfe
+Command-Specs: STATS_MAKE_CATALOG.xml
+Code-Files: STATS_MAKE_CATALOG.py
+Misc-Files: extsyntax.css,Readme.md,IBMdialogicon.png,LICENSE,default.
+ png,markdown.html
+Summary: Build a dataset of variable information from multiple dataset
+ s.
+Description: This procedure builds a dataset containing the variable n
+ ames, labels, and optionally selected custom variable attributes from
+  one or more IBM SPSS Statistics, SAS, or Stata data files.
+Author: JKP, IBM SPSS
+Version: 2.1.0
+Product-Version: 24
+Date: 10/3/2022
+Product-Version-Maximum: 99
+Categories: Python catalog
+Plugins: Python
+Python-Version: 3
+Translation-Catalogues: lang
