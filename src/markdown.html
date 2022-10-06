@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+<link rel="stylesheet" type="text/css" href="extsyntax.css" />
+<title>STATS MAKE CATALOG Extension Command</title>
+
+<link rel="stylesheet" type="text/css" href="extsyntax.css" />
+
+</head>
+
+<body>
+<h1>STATS MAKE CATALOG Extension Command</h1>
+
+<p>Create and activate a dataset whose cases are variable names and labels 
+and, optionally, selected attributes from one or more data files.</p>
+<div class="syntax">
+<p>STATS MAKE CATALOG <em>list-of-specifications</em><sup>&#42;</sup> </p>
+
+<p>/OPTIONS FILETYPES=SPSS<sup>&#42;&#42;</sup> SAS STATA<br/>
+DSNAME=<em>name</em><br/>
+FILENAMEPATTERN=&ldquo;<em>pattern expression</em>&rdquo;<br/>
+VARNAMEPATTERN=&ldquo;<em>pattern expression</em>&rdquo;<br/>
+ATTRLENGTH=<em>value</em></p>
+
+<p>/ATTRIBUTES <em>list-of-attribute-names</em></p>
+
+<p>HELP.</p>
+
+<p><sup>&#42;</sup> Required<br/>
+<sup>&#42;&#42;</sup> Default</p>
+</div>
+<p>/HELP displays this text and does nothing else.</p>
+
+<p><strong>list-of-specifications</strong> is a list of one or more filenames, optionally with paths, and/or directories.<br/>
+For directories, all appropriate files in the directory and its subdirectories are searched.
+File handles are supported.</p>
+
+<h2>OPTIONS</h2>
+
+<p><strong>FILETYPES</strong> Choose one or more file types.  It defaults to SPSS files (.sav and .por).
+sas files are .sas7bdat, .sd7, .sd2, .ssd01, .ssd04, and .xpt<br/>
+stata files are .dta.</p>
+
+<p>Files with any of the specified types found in the directories specified are searched.  Since 
+these files are opened in SPSS, if the same file is already open in SPSS, it will be reopened 
+without saving any changes that may have been made.</p>
+
+<p><strong>DSNAME</strong> optionally specifies a dataset name to be assigned to the output dataset.
+If not given, a name will be created.</p>
+
+<p><strong>FILENAMEPATTERN</strong> can be specified as a quoted literal containing a regular expression pattern
+starting from the beginning of the name
+to be used as a filter on filenames.  For example, <code>FILENAMEPATTERN=&quot;car&quot;</code> would limit the 
+files searched to those whose name starts with &ldquo;car&rdquo;.  <code>FILENAMEPATTERN=&quot;.*car&quot;</code> would accept 
+any filenames containing &ldquo;car&rdquo;.  These are not the same as filename wildcards found in many operating systems.
+For example, <code>&quot;abc*&quot;</code> will match any name starting with ab: it means literally ab followed by zero or more c&#39;s.
+The search is anchored at the start of the string.
+To search for a pattern anywhere in the string, write it as <i>.*ab</i>
+The regular expression is not case sensitive, and it is applied to the name of the 
+file without the extension.  For a full explanation of regular expressions, one good source is
+<a href="http://www.amk.ca/python/howto/regex/">http://www.amk.ca/python/howto/regex/</a></p>
+
+  <p><strong>VARNAMEPATTERN</strong> Optionally,
+  enter a regular expression to limit the catalog to names matching a
+  regular expression pattern.  The search is anchored at the start of the string and is not case sensitive.</p>
+
+<h2>ATTRIBUTES</h2>
+
+<p><strong>list-of-names</strong>
+specifies a list of custom variable attributes to be included in the output dataset.  The variable 
+names will be the attribute names except if they conflict with the built-in variables <em>source</em>, 
+<em>VariableName</em>, and <em>VariableLabel</em>. If the attribute is not present, the value will be blank.<br/>
+If the attribute is an array, only the first value is included.
+Attribute variables in the output dataset are truncated to the length specified in <strong>ATTRLENGTH</strong>, 
+which defaults to 256 </p>
+
+
+
+<pre class="example"><code>STATS MAKE CATALOG &quot;c:/spss/samples&quot;.
+</code></pre>
+
+<pre class="example"><code>STATS MAKE CATALOG &quot;c:/temp/firstlevel&quot; &quot;c:/spss/samples/voter.sav&quot; /options filetypes=spss sas
+dsname=catalog.
+</code></pre>
+
+<p>Note: the earlier version of this command was known as GATHERMD.</p>
+
+<p>&copy; Copyright IBM Corp. 1989, 2022</p>
+
+</body>
+
+</html>
+
