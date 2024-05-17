@@ -11,7 +11,7 @@ Description: This procedure builds a dataset containing the variable n
  ames, labels, and optionally selected custom variable attributes from
   one or more IBM SPSS Statistics, SAS, or Stata data files.
 Author: JKP, IBM SPSS
-Version: 2.1.0
+Version: 2.1.1
 Product-Version: 24
 Date: 10/3/2022
 Product-Version-Maximum: 99
