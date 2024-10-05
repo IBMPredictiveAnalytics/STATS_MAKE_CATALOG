@@ -23,20 +23,28 @@ and, optionally, selected attributes from one or more data files.</p>
 DSNAME=<em>name</em><br/>
 FILENAMEPATTERN=&ldquo;<em>pattern expression</em>&rdquo;<br/>
 VARNAMEPATTERN=&ldquo;<em>pattern expression</em>&rdquo;<br/>
+VALUELABELS=NO<sup>&#42;&#42;</sup> or YES </br>
 ATTRLENGTH=<em>value</em></p>
 
 <p>/ATTRIBUTES <em>list-of-attribute-names</em></p>
 
-<p>HELP.</p>
+<p>/HELP</p>
 
 <p><sup>&#42;</sup> Required<br/>
 <sup>&#42;&#42;</sup> Default</p>
 </div>
 <p>/HELP displays this text and does nothing else.</p>
 
+<pre class="example"><code>STATS MAKE CATALOG &quot;c:/spss/samples&quot;.
+</code></pre>
+
+<pre class="example"><code>STATS MAKE CATALOG &quot;c:/temp/firstlevel&quot; &quot;c:/spss/samples/voter.sav&quot; /options filetypes=spss sas
+dsname=catalog.
+</code></pre>
+
 <p><strong>list-of-specifications</strong> is a list of one or more filenames, optionally with paths, and/or directories.<br/>
 For directories, all appropriate files in the directory and its subdirectories are searched.
-File handles are supported.</p>
+File handles are supported.  Password protected (encrypted) files are not included.</p>
 
 <h2>OPTIONS</h2>
 
@@ -66,6 +74,11 @@ file without the extension.  For a full explanation of regular expressions, one 
   <p><strong>VARNAMEPATTERN</strong> Optionally,
   enter a regular expression to limit the catalog to names matching a
   regular expression pattern.  The search is anchored at the start of the string and is not case sensitive.</p>
+  
+<p><strong>VALUELABELS</strong> If YES, two variables are added to the output dataset.
+The first one is the number of value labels defined for each variable.  The second one
+contains all the labels separated by a semicolon up to a limit.  (This means that a label that actually
+contains a semicolon would look like two labels.)
 
 <h2>ATTRIBUTES</h2>
 
@@ -79,16 +92,11 @@ which defaults to 256 </p>
 
 
 
-<pre class="example"><code>STATS MAKE CATALOG &quot;c:/spss/samples&quot;.
-</code></pre>
 
-<pre class="example"><code>STATS MAKE CATALOG &quot;c:/temp/firstlevel&quot; &quot;c:/spss/samples/voter.sav&quot; /options filetypes=spss sas
-dsname=catalog.
-</code></pre>
 
 <p>Note: the earlier version of this command was known as GATHERMD.</p>
 
-<p>&copy; Copyright IBM Corp. 1989, 2022</p>
+<p>&copy; Copyright IBM Corp. 1989, 2024</p>
 
 </body>
 
