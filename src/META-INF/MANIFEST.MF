@@ -3,8 +3,7 @@ Display-Name: Make Variable Catalog
 Dialog-Specs: MakeCatalog.cfe
 Command-Specs: STATS_MAKE_CATALOG.xml
 Code-Files: STATS_MAKE_CATALOG.py
-Misc-Files: extsyntax.css,Readme.md,IBMdialogicon.png,LICENSE,default.
-png,markdown.html
+Misc-Files: extsyntax.css,Readme.md,IBMdialogicon.png,LICENSE,default.png,markdown.html
 Summary: Build a dataset of variable information from multiple datasets.
 Description: This procedure builds a dataset containing the variable names,
 labels, and optionally selected custom variable attributes
